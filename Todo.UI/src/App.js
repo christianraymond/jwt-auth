@@ -2,9 +2,8 @@ import Landing from './components/Landing';
 import Login from "./components/auth/Login";
 import Register from "./components/auth/register";
 import Navigation from "./components/Navigation";
-import Todos from './components/todos/TodoList';
+import TodoPage from './components/todos/TodoPage';
 import { BrowserRouter as Router, Switch, Route, Redirect  } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { connect } from 'react-redux';
 
@@ -15,7 +14,7 @@ const App = props => {
     <Router>
       <Navigation />
       <Switch>
-      <Route exact path="/items" component={Todos} />
+      <Route exact path="/items" component={TodoPage} />
         <Redirect to="/items" />
       </Switch>
     </Router>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { logginSuccess } from "../isAuth";
-
 import { REGISTER_SUCCESS, REGISTER_FAIL, LOGOUT, AUTH_END, LOGIN_FAIL } from "../reducer/types";
 
 const API_URL = "http://localhost:5000";

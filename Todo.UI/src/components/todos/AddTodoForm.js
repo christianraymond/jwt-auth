@@ -7,26 +7,38 @@ export default class AddTodoForm extends Component {
     this._updateValue = this._updateValue.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
-  _updateValue = (value) => {
-      this.setState({ value })
+  _updateValue(value) {
+    this.setState({ value });
   }
 
-_handleSubmit = (e) => {
+  _handleSubmit(e) {
     e.preventDefault();
-    if(!this.state.value.trim()) {
-        return ;
+    if (!this.state.value.trim()) {
+      return;
     }
-    this.props._handleSubmit({ description: this.state.value, isCoomplete: false});
-    this.setState({value: ''})
-}
+    this.props.handleSubmit({
+      todo: this.state.value,
+      description: this.state.value,
+      isComplete: false,
+    });
+    this.setState({ value: "" });
+  }
   render() {
     const { value } = this.state;
-    const { _handleSubmit, _updateValue } = this;
+    const { _updateValue, _handleSubmit } = this;
+
     return (
       <div>
         <form onSubmit={_handleSubmit}>
-          <label className='text-danger'>Add New Todo</label>
-          <input type="text" onChange={(e) => _updateValue(e.target.value)} value={value} />
+          <input
+            type="text"
+            onChange={(e) => _updateValue(e.target.value)}
+            value={value}
+            placeholder="Add your todo"
+          />
+          <button className="waves-effect waves-light btn blue right">
+            Add
+          </button>
         </form>
       </div>
     );

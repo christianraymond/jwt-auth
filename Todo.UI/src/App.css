@@ -72,14 +72,14 @@ input:focus + i {
   color: lighten(#27282d, 65%);
   opacity: 0.4;
 }
-i {
+/* i {
   color: lighten(#27282d, 25%);
   position: absolute;
   left: 6px;
   top: 50%;
   transform: translateY(-50%);
   transition: color 0.3s;
-}
+} */
 
 button {
   background: #27282d;
