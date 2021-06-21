@@ -8,7 +8,7 @@ const Navigation = (props) => {
   let privateLink = (
     <ul className="main-nav">
       <li className="nav-item"><a className="nav-link" id="active2" href="/items">Todo</a></li>
-      <li className="nav-item"><a type="button" className="nav-link" id="active2" onClick={props.logout}>Logout</a></li>
+      <li className="nav-item"><a type="button" className="nav-link" id="active2" href="/login" onClick={props.logout}>Logout</a></li>
     </ul>
   )
   let guestLink = (

@@ -9,20 +9,20 @@ import {
 const API_URL = "http://localhost:5000";
 const TODO_API_KEY = `${API_URL}/api/todos`;
 
-const userToken = (token) => {
+const apiToken = (token) => {
   return {
     headers: {
-      Authorization: `bearer ${token}`,
+      Authorization: `BEARER ${localStorage.getItem('token', token)}`,
     },
   };
 };
 
 export const startAddingTodo = (todo, token) => {
   return (dispatch, getState) => {
-    axios
-      .post(`${TODO_API_KEY}`, { ...todo }, userToken(token))
+    axios.post(`${TODO_API_KEY}`, { ...todo }, apiToken(token))
       .then((response) => {
-        dispatch(addTodo(response.data));
+        console.log(response)
+        dispatch(addTodo(response.data.token));
       })
       .catch((error) => console.log(error));
   };

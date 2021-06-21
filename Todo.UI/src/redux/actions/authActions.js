@@ -7,7 +7,7 @@ const API_REG_KEY = `${API_URL}/api/auth/register`;
 const API_LOGIN_KEY = `${API_URL}/api/auth`;
 
 export const authHeader = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("token"));
 
   if (user && user.accessToken) {
     return { Authorization: "Bearer " + user.accessToken };

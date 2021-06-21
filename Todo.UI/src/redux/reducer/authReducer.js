@@ -8,14 +8,14 @@ import {
 } from "./types";
 
 const initialState = {
-  token: localStorage.getItem('token'),
+  token: localStorage.getItem("token"),
   user: {},
   isLoggedIn: !!localStorage.getItem("token"),
   loading: false,
   error: null,
 };
 
-  export default (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case REGISTER_SUCCESS:
       localStorage.setItem("token", action.payload.data.token);
@@ -51,8 +51,8 @@ const initialState = {
         isLoggedIn: false,
         loading: true,
       };
-      case AUTH_END:
-        return { ...state, loading: false };
+    case AUTH_END:
+      return { ...state, loading: false };
 
     case LOGOUT:
       return {
@@ -63,4 +63,4 @@ const initialState = {
     default:
       return state;
   }
-}
+};
