@@ -22,7 +22,18 @@ export const startAddingTodo = (todo, token) => {
     axios.post(`${TODO_API_KEY}`, { ...todo }, apiToken(token))
       .then((response) => {
         console.log(response)
-        dispatch(addTodo(response.data.token));
+        dispatch(addTodo(response.data));
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+export const startSettingTodos = (token) => {
+  return (dispatch, getState) => {
+    axios
+      .get(`${TODO_API_KEY}`, apiToken(token))
+      .then((response) => {
+        dispatch(setTodos(response.data));
       })
       .catch((error) => console.log(error));
   };
@@ -45,17 +56,6 @@ export const startUpdatingTodo = (todo) => {
       .put(`${TODO_API_KEY}/${todo.id}/IsComplete`, todo)
       .then((response) => {
         dispatch(updateTodo(todo));
-      })
-      .catch((error) => console.log(error));
-  };
-};
-
-export const startSettingTodos = () => {
-  return (dispatch, getState) => {
-    axios
-      .get(`${TODO_API_KEY}`)
-      .then((response) => {
-        dispatch(setTodos(response.data));
       })
       .catch((error) => console.log(error));
   };

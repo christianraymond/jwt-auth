@@ -1,20 +1,32 @@
-import { SET_TODOS, ADD_TODO, REMOVE_TODO, UPDATE_TODO, } from "./types";
+import {
+  SET_TODOS,
+  SET_TODO,
+  ADD_TODO,
+  REMOVE_TODO,
+  UPDATE_TODO,
+} from "./types";
 
 export const initialState = {
-  todos: [],
+  todos: [
+    { id: 1, description: "todo one", isCompleted: false }],
 };
 
-export const reducer = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
-    case SET_TODOS:
-      return {
-        ...state,
-        todos: action.todos,
-      };
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state, action.todo],
+        todos: [...state, action.payload],
+      };
+    case SET_TODOS:
+      return {
+        ...state,
+        todos: [...action.payload],
+      };
+    case SET_TODO:
+      return {
+        ...state,
+        todos: action.todos,
       };
     case REMOVE_TODO:
       return {
