@@ -1,12 +1,15 @@
 
 import React from 'react'
+import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
 
-export default function TodoList({ todos, onTodoUpdating, onTodoDeleting }) {
+const TodoList = ({ todos, onTodoUpdating, onTodoDeleting }) =>{
     const todoList = todos.length
     ? (
         todos.map((todo, index) => (
-            <TodoItem key={index} todo={todo}
+            <TodoItem
+            key={index} 
+            todo={todo}
             onTodoUpdating={onTodoUpdating}
             onTodoDeleting={onTodoDeleting}
             />
@@ -25,3 +28,11 @@ export default function TodoList({ todos, onTodoUpdating, onTodoDeleting }) {
     )
 }
 
+const mapStateToProps =  (state) => {
+    return {
+        token: state.auth.token,
+        todos: state.todos.todos,
+    }
+}
+
+export default connect(mapStateToProps)(TodoList)

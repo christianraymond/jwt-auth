@@ -8,7 +8,8 @@ import {
 
 export const initialState = {
   todos: [
-    { id: 1, description: "todo one", isCompleted: false }],
+    { id: 1, title: "todo one", isComplete: true },
+  ],
 };
 
 export default (state = initialState, action) => {
@@ -16,7 +17,7 @@ export default (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: [...state, action.payload],
+        todos: [...state.todos, action.payload]
       };
     case SET_TODOS:
       return {
@@ -26,7 +27,7 @@ export default (state = initialState, action) => {
     case SET_TODO:
       return {
         ...state,
-        todos: action.todos,
+        todos: [...state.todos]
       };
     case REMOVE_TODO:
       return {

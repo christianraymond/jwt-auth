@@ -5,11 +5,11 @@ export default function TodoItem({ todo, onTodoUpdating, onTodoDeleting }) {
     <div>
       <li className="collection-item" key={todo.id}>
         <div>
-          <a
+          <a href="javascription:void()"
             onClick={() =>
               onTodoUpdating({
                 id: todo.id,
-                description: todo.description,
+                title: todo.title,
                 isComplete: !todo.isComplete,
               })
             }>
@@ -17,13 +17,13 @@ export default function TodoItem({ todo, onTodoUpdating, onTodoDeleting }) {
               <span
                 style={{ textDecoration: "line-through" }}
                 className="grey-text lighten-2">
-                {todo.description}
+                {todo.title}
               </span>
             ) : (
-              <span className="black-text darken-2">{todo.description}</span>
+              <span className="black-text darken-2">{todo.title}</span>
             )}
           </a>
-          <a
+          <a href="javascription:void()"
             onClick={() => onTodoDeleting(todo.id)}
             className="secondary-content">
             <i className="badge red-text darken-2">delete</i>

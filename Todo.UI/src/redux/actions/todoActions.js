@@ -21,8 +21,8 @@ export const startAddingTodo = (todo, token) => {
   return (dispatch, getState) => {
     axios.post(`${TODO_API_KEY}`, { ...todo }, apiToken(token))
       .then((response) => {
+        dispatch(addTodo(response));
         console.log(response)
-        dispatch(addTodo(response.data));
       })
       .catch((error) => console.log(error));
   };

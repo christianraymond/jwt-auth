@@ -11,13 +11,13 @@ export default class AddTodoForm extends Component {
     this.setState({ value });
   }
 
-  _handleSubmit(e) {
+  _handleSubmit = async (e) => {
     e.preventDefault();
     if (!this.state.value.trim()) {
       return;
     }
     this.props.handleSubmit({
-      todo: this.state.value,
+      title: this.state.value,
       description: this.state.value,
       isComplete: false,
     });
@@ -36,9 +36,7 @@ export default class AddTodoForm extends Component {
             value={value}
             placeholder="Add your todo"
           />
-          <button className="waves-effect waves-light btn blue right">
-            Add
-          </button>
+          <button className="waves-effect waves-light btn blue right"> Add </button>
         </form>
       </div>
     );
