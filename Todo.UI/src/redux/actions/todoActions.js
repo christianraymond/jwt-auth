@@ -32,7 +32,7 @@ export const startAddingTodo = (todo, token) => {
 export const startUpdatingTodo = (todo, token) => {
   return (dispatch, getState) => {
     axios
-      .put(`${TODO_API_KEY}/${todo.id}/IsComplete`, todo, apiToken(token))
+      .put(`${TODO_API_KEY}/${todo.id}`, todo, apiToken(token))
       .then((response) => {
         dispatch(updateTodo(todo));
       })

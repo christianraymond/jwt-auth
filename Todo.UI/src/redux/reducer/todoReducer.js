@@ -7,7 +7,9 @@ import {
 } from "./types";
 
 export const initialState = {
-  todos: JSON.parse(localStorage.getItem("todos")) || [],
+  todos: [
+    {id: 1, title: 'Code 2 hours', description: 'learning how to code', isComplete: false}
+  ],
 };
 
 export default (state = initialState, action) => {
