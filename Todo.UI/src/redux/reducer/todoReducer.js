@@ -7,9 +7,7 @@ import {
 } from "./types";
 
 export const initialState = {
-  todos: [
-    {title:"Learn C++", description:"Learn C++", isComplete: true}
-  ],
+  todos: JSON.parse(localStorage.getItem("todos")) || [],
 };
 
 export default (state = initialState, action) => {
