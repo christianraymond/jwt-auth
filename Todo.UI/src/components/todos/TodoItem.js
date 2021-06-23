@@ -5,7 +5,7 @@ export default function TodoItem({ todo, onTodoUpdating, onTodoDeleting }) {
     <div>
       <li className="collection-item" key={todo.id}>
         <div>
-          <a href="javascription:void()"
+          <a
             onClick={() =>
               onTodoUpdating({
                 id: todo.id,
@@ -23,7 +23,7 @@ export default function TodoItem({ todo, onTodoUpdating, onTodoDeleting }) {
               <span className="black-text darken-2"> { todo.title } </span>
             )}
           </a>
-          <a href="javascription:void()"
+          <a
             onClick={() => onTodoDeleting(todo.id)}
             className="secondary-content">
             <i className="badge red-text darken-2">delete</i>

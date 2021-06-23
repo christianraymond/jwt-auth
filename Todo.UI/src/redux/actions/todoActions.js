@@ -29,6 +29,17 @@ export const startAddingTodo = (todo, token) => {
   };
 };
 
+export const startUpdatingTodo = (todo, token) => {
+  return (dispatch, getState) => {
+    axios
+      .put(`${TODO_API_KEY}/${todo.id}/IsComplete`, todo, apiToken(token))
+      .then((response) => {
+        dispatch(updateTodo(todo));
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
 export const startSettingTodos = (token) => {
   return (dispatch, getState) => {
     axios
@@ -46,17 +57,6 @@ export const startDeletingTodo = (id) => {
       .delete(`${TODO_API_KEY}/${id}`)
       .then((response) => {
         dispatch(removeTodo(id));
-      })
-      .catch((error) => console.log(error));
-  };
-};
-
-export const startUpdatingTodo = (todo) => {
-  return (dispatch, getState) => {
-    axios
-      .put(`${TODO_API_KEY}/${todo.id}/IsComplete`, todo)
-      .then((response) => {
-        dispatch(updateTodo(todo));
       })
       .catch((error) => console.log(error));
   };
