@@ -8,7 +8,7 @@ import {
 
 export const initialState = {
   todos: [
-    { id: 1, title: "todo one", isComplete: true },
+    {title:"Learn C++", description:"Learn C++", isComplete: true}
   ],
 };
 

@@ -17,10 +17,10 @@ export default function TodoItem({ todo, onTodoUpdating, onTodoDeleting }) {
               <span
                 style={{ textDecoration: "line-through" }}
                 className="grey-text lighten-2">
-                {todo.title}
+                { todo.title }
               </span>
             ) : (
-              <span className="black-text darken-2">{todo.title}</span>
+              <span className="black-text darken-2"> { todo.title } </span>
             )}
           </a>
           <a href="javascription:void()"

@@ -4,16 +4,17 @@ import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
 
 const TodoList = ({ todos, onTodoUpdating, onTodoDeleting }) =>{
+    // debugger;
     const todoList = todos.length
     ? (
-        todos.map((todo, index) => (
+        Object(todos.map((todo, index) => (
             <TodoItem
             key={index} 
             todo={todo}
             onTodoUpdating={onTodoUpdating}
             onTodoDeleting={onTodoDeleting}
             />
-        ))
+        )))
     ) :
     (
         <p className="center">You don't have any todos :)</p>

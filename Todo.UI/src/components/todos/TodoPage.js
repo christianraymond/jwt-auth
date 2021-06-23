@@ -14,7 +14,7 @@ import {
 
 class TodoPage extends Component {
   componentDidMount(){
-    this.props.startAddingTodo();
+    return this.props.startAddingTodo;
   }
   render() {
     return (
@@ -32,7 +32,7 @@ class TodoPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todos: getTodos(state),
+    todos: state.todos,
   };
 };
 
